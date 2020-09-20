@@ -83,15 +83,13 @@ inline void *cheri_derive_code_cap(void *src, size_t address, size_t size, size_
   returned_cap = __builtin_cheri_offset_set(returned_cap, address);
   returned_cap = __builtin_cheri_bounds_set(returned_cap, size);
 
-  returned_cap = __builtin_cheri_seal_entry(returned_cap);
-
   return returned_cap;
 }
 
 void cheri_print_cap(void *cap) {
   printf("cap: [v: %" PRIu8 " | f: %" PRIu8 " | sealed: %" PRIu8 " | addr: " PRINT_REG \
 		  " | base: " PRINT_REG " | length: " PRINT_REG " | offset: " PRINT_REG \
-		  " | perms: " PRINT_REG "] \n",
+		  " | perms: " PRINT_REG " | otype: " PRINT_REG "] \n",
 		  (uint8_t) __builtin_cheri_tag_get(cap),
 		  (uint8_t) __builtin_cheri_flags_get(cap),
 		  (uint8_t) __builtin_cheri_sealed_get(cap),
@@ -99,7 +97,8 @@ void cheri_print_cap(void *cap) {
 		  __builtin_cheri_base_get(cap),
 		  __builtin_cheri_length_get(cap),
 		  __builtin_cheri_offset_get(cap),
-		  __builtin_cheri_perms_get(cap)
+		  __builtin_cheri_perms_get(cap),
+		  __builtin_cheri_type_get(cap)
   );
 }
 
