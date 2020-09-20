@@ -50,6 +50,17 @@
 extern void *pvAlmightyDataCap;
 extern void *pvAlmightyCodeCap;
 
+inline void *cheri_seal_cap(void *unsealed_cap, size_t otype) {
+  void *sealer = __builtin_cheri_address_set(pvAlmightyDataCap, otype);
+  return __builtin_cheri_seal(unsealed_cap, sealer);
+}
+
+inline void *cheri_unseal_cap(void *sealed_cap) {
+  size_t otype = __builtin_cheri_type_get(sealed_cap);
+  void *unsealer = __builtin_cheri_address_set(pvAlmightyDataCap, otype);
+  return __builtin_cheri_unseal(sealed_cap, unsealer);
+}
+
 inline void *cheri_build_data_cap(size_t address, size_t size, size_t perms) {
   void *returned_cap = pvAlmightyDataCap;
   returned_cap = __builtin_cheri_perms_and(returned_cap, perms);

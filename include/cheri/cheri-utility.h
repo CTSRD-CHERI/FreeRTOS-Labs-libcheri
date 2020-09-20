@@ -42,6 +42,8 @@
 
 #include <stddef.h>
 
+void *cheri_seal_cap(void *unsealed_cap, size_t otype);
+void *cheri_unseal_cap(void *unsealed_cap);
 void *cheri_build_data_cap(ptraddr_t address, size_t size, size_t perms);
 void *cheri_build_code_cap(ptraddr_t address, size_t size, size_t perms);
 void *cheri_derive_data_cap(void *src, ptraddr_t address, size_t size, size_t perms);
