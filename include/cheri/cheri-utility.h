@@ -31,26 +31,38 @@
  */
 
 /**
-  * @file
-  *
-  * @brief CHERI-RISC-V Utility
-  */
+ * @file
+ *
+ * @brief CHERI-RISC-V Utility
+ */
 
 #ifndef _RTEMS_SCORE_CHERI_RISCV_UTILITY_H
 #define _RTEMS_SCORE_CHERI_RISCV_UTILITY_H
 #if __CHERI__
 
-#include <stddef.h>
+    #include <stddef.h>
 
-void *cheri_seal_cap(void *unsealed_cap, size_t otype);
-void *cheri_unseal_cap(void *unsealed_cap);
-void *cheri_build_data_cap(ptraddr_t address, size_t size, size_t perms);
-void *cheri_build_code_cap(ptraddr_t address, size_t size, size_t perms);
-void *cheri_build_code_cap_unbounded(ptraddr_t address, size_t perms);
-void *cheri_derive_data_cap(void *src, ptraddr_t address, size_t size, size_t perms);
-void *cheri_derive_code_cap(void *src, ptraddr_t address, size_t size, size_t perms);
-void cheri_print_cap(void *cap);
-void cheri_print_scrs(void);
+    void * cheri_seal_cap( void * unsealed_cap,
+                           size_t otype );
+    void * cheri_unseal_cap( void * unsealed_cap );
+    void * cheri_build_data_cap( ptraddr_t address,
+                                 size_t size,
+                                 size_t perms );
+    void * cheri_build_code_cap( ptraddr_t address,
+                                 size_t size,
+                                 size_t perms );
+    void * cheri_build_code_cap_unbounded( ptraddr_t address,
+                                           size_t perms );
+    void * cheri_derive_data_cap( void * src,
+                                  ptraddr_t address,
+                                  size_t size,
+                                  size_t perms );
+    void * cheri_derive_code_cap( void * src,
+                                  ptraddr_t address,
+                                  size_t size,
+                                  size_t perms );
+    void cheri_print_cap( void * cap );
+    void cheri_print_scrs( void );
 
 #endif /* __CHERI__ */
-#endif
+#endif /* ifndef _RTEMS_SCORE_CHERI_RISCV_UTILITY_H */
