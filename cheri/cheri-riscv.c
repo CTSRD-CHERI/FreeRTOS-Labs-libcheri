@@ -40,6 +40,7 @@
 #include <cheri_init_globals.h>
 #include <cheri/cheri-utility.h>
 #include <inttypes.h>
+#include <stdio.h>
 
 #if __riscv_xlen == 32
     #define PRINT_REG    "0x%08" PRIx32
