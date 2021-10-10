@@ -37,7 +37,6 @@
  */
 #if __CHERI__
 
-#include <cheri_init_globals.h>
 #include <cheri/cheri-utility.h>
 #include <inttypes.h>
 #include <stdio.h>
