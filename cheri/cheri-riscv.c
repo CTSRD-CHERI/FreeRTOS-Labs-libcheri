@@ -66,7 +66,7 @@ inline void * cheri_unseal_cap( void * sealed_cap )
     return __builtin_cheri_unseal( sealed_cap, unsealer );
 }
 
-inline void * cheri_build_data_cap( size_t address,
+inline void * cheri_build_data_cap( ptraddr_t address,
                                     size_t size,
                                     size_t perms )
 {
@@ -78,7 +78,7 @@ inline void * cheri_build_data_cap( size_t address,
     return returned_cap;
 }
 
-inline void * cheri_build_code_cap( size_t address,
+inline void * cheri_build_code_cap( ptraddr_t address,
                                     size_t size,
                                     size_t perms )
 {
@@ -91,7 +91,7 @@ inline void * cheri_build_code_cap( size_t address,
     return returned_cap;
 }
 
-inline void * cheri_build_code_cap_unbounded( size_t address,
+inline void * cheri_build_code_cap_unbounded( ptraddr_t address,
                                               size_t perms )
 {
     void * returned_cap = pvAlmightyCodeCap;
@@ -103,7 +103,7 @@ inline void * cheri_build_code_cap_unbounded( size_t address,
 }
 
 inline void * cheri_derive_data_cap( void * src,
-                                     size_t address,
+                                     ptraddr_t address,
                                      size_t size,
                                      size_t perms )
 {
@@ -116,7 +116,7 @@ inline void * cheri_derive_data_cap( void * src,
 }
 
 inline void * cheri_derive_code_cap( void * src,
-                                     size_t address,
+                                     ptraddr_t address,
                                      size_t size,
                                      size_t perms )
 {
